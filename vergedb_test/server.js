@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const port = 3000 || process.env.PORT;
 const dronesRouter = require('./routes/drones');
-// const singleRouter = require('./routes/single');
 
 app.get('/', (req, res) => {
     res.json({ message: 'alive' });
