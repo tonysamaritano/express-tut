@@ -20,6 +20,14 @@ function getSingle(number) {
     }
 }
 
+function removeSingle(number) {
+    var data = db.run(`DELETE FROM drones WHERE id=?`,number);
+
+    return {
+        data
+    }
+}
+
 function create(droneObj) {
     const { type, name, owner } = droneObj;
     const result = db.run('INSERT INTO drones (type, name, owner) VALUES (@type, @name, @owner)', { type, name, owner });
@@ -35,5 +43,6 @@ function create(droneObj) {
 module.exports = {
     getMultiple,
     getSingle,
+    removeSingle,
     create
 }

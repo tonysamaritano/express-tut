@@ -18,6 +18,10 @@ router.get('/:id', function (req, res) {
     res.json(drones.getSingle(req.params.id));
 });
 
+router.delete('/:id', function (req, res) {
+    res.json(drones.removeSingle(req.params.id));
+});
+
 /* POST drones */
 router.post('/', function (req, res, next) {
     try {
