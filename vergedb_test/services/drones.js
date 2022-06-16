@@ -15,8 +15,6 @@ function getMultiple(page = 1) {
 function getSingle(number) {
     var data = db.query(`SELECT * FROM drones WHERE id=?`,number);
 
-    console.log(data);
-
     return data
 }
 
