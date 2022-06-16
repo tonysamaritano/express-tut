@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const drones = require('../services/drones');
 
+console.log('In drone router');
+
 /* GET drones listing. */
 router.get('/', function (req, res, next) {
     try {
+        console.log('In wrong get');
         //Commands here
         res.json(drones.getMultiple(req.query.page));
         
@@ -15,6 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res) {
+    console.log('In correct get');
     res.json(drones.getSingle(req.params.id));
 });
 

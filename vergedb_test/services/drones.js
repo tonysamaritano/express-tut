@@ -1,5 +1,7 @@
-const db = require('../services/db');
+const db = require('./db');
 const config = require('../config');
+
+console.log('In drone services');
 
 function getMultiple(page = 1) {
     const offset = (page - 1) * config.listPerPage;
@@ -13,6 +15,8 @@ function getMultiple(page = 1) {
 }
 
 function getSingle(number) {
+    console.log('Got single');
+
     var data = db.query(`SELECT * FROM drones WHERE id=?`,number);
 
     return data
