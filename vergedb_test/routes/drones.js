@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 /* GET single drone by id */
 router.get('/:id', function (req, res) {
     try {
-        res.json(drones.getSingle(req.params.id));
+        res.status(200).json(drones.getSingle(req.params.id));
     } catch(err) {
         console.error(err);
         responseCode = drones.FindResponseCode(err);

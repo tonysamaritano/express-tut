@@ -6,6 +6,12 @@
   "scripts": {
     "test": "jest --forceExit"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

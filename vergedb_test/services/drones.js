@@ -1,7 +1,12 @@
-const db = require('../services/db');
+// const db = require('../services/db');
+const db = require('../server.test.js');
 // const config = require('../config');
 
 // enumeration for different errors
+// associated numbers are formatted in C type 
+// of error format where 0 means that everything 
+// works and negative numbers flags that something
+// is wrong
 const ErrorCodes = {
     CreatedSuccessfully:    0,     // code: 201
     BadRequest:            -1,     // code: 400
@@ -44,6 +49,7 @@ function getAllDrones() {
 }
 
 function getSingle(number) {
+    console.log(db.prepare(`SELECT * FROM drones`).all());
     var data = db.query(`SELECT * FROM drones WHERE id=?`,number);
     if(!data.length){
         throw DataBaseError(`Drone with id ${number} does not exist`, ErrorCodes.NotFound);
