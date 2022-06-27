@@ -65,7 +65,7 @@ describe('get drone by single id test', () => {
 
         return request(app).get("/drones/1")
             .then(res => {
-                expect(res.status).toBe(200)
+                expect(res.status).toBe(201)
                 expect(res.body).toEqual(response);
             });
     });
