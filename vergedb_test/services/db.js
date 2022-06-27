@@ -14,7 +14,7 @@ db.serialize({}, () => {
     db.prepare(`CREATE TABLE IF NOT EXISTS drones(id INTEGER PRIMARY KEY AUTOINCREMENT,
         type INTEGER NOT NULL,
         name TEXT NOT NULL UNIQUE,
-        owner TEXT NOT NULL)`).run();
+        owner TEXT NOT NULL);`).run();
 })
 
 function query(sql, params) {
@@ -22,7 +22,7 @@ function query(sql, params) {
 }
 
 function run(sql, params) {
-    console.log('Running run in db');
+    console.log('running run in db');
     return db.prepare(sql).run(params);
 }
 
