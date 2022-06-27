@@ -13,8 +13,6 @@ if (process.env.NODE_ENV === 'test') {
     db.prepare(`DELETE FROM drones`).run();
     db.prepare(`INSERT INTO drones (type, name, owner) VALUES (?, ?, ?)`).run(0, 'X1-001', 'Verge');
     db.prepare(`INSERT INTO drones (type, name, owner) VALUES (?, ?, ?)`).run(1, 'X1-002', 'Verge');
-    console.log("database initialized");
-    console.log(db.prepare(`SELECT * FROM drones`).all());
 }
 else {
     db = new sqlite(path.resolve('drones.db'), { fileMustExist: true });
@@ -32,7 +30,6 @@ function query(sql, params) {
 }
 
 function run(sql, params) {
-    console.log('running run in db');
     return db.prepare(sql).run(params);
 }
 
