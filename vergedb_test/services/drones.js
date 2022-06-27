@@ -1,5 +1,6 @@
-// const db = require('../services/db');
-const db = require('../server.test.js');
+const db = require('../services/db');
+// const db = require('../server.test.js');
+console.log(db);
 // const config = require('../config');
 
 // enumeration for different errors
@@ -49,7 +50,7 @@ function getAllDrones() {
 }
 
 function getSingle(number) {
-    console.log(db.prepare(`SELECT * FROM drones`).all());
+    //console.log(db.prepare(`SELECT * FROM drones`).all());
     var data = db.query(`SELECT * FROM drones WHERE id=?`,number);
     if(!data.length){
         throw DataBaseError(`Drone with id ${number} does not exist`, ErrorCodes.NotFound);
