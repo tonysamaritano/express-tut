@@ -98,6 +98,31 @@ namespace vergedb.Controllers
             return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(owner, serializerSettings)));
         }
 
+        // GET: api/Owners/Drones/Verge
+        [HttpGet("Drones/{name}")]
+        public async Task<IActionResult> GetDrones(string name)
+        {
+            if (_context.Owner == null)
+            {
+                return NotFound();
+            }
+
+            var owner = await _context.Owner.Where(i => i.CompanyName.Equals(name)).Include(d => d.Drones).SingleAsync();
+
+            owner.NumDrones = owner.Drones.Count();
+
+            if (owner == null)
+            {
+                return NotFound();
+            }
+
+            jsonResolver.IgnoreProperty(typeof(Owner), "key");
+            jsonResolver.IgnoreProperty(typeof(Drone), "key", "owner_name", "performances", "performance_count");
+            serializerSettings.ContractResolver = jsonResolver;
+
+            return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(owner, serializerSettings)));
+        }
+
         // PUT: api/Owners/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
