@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
-//using System.Text.Json.Serialization;
 
 namespace vergedb.Models
 {
@@ -16,10 +12,27 @@ namespace vergedb.Models
         [Required]
         [JsonProperty("droneUID")]
         public int DroneUID { get; set; }
+        [Required]
+        [JsonProperty("faa_id")]
+        public string FaaId { get; set; }
+        [Required]
+        [JsonProperty("cube_version")]
+        [RegularExpression(@"(orange|black)", ErrorMessage = "Specify [orange] or [black] cube.")]
+        public string PixHardware { get; set; }
+        [Required]
+        [JsonProperty("performance_count")]
+        public int PerformanceCount { get; set; }
+
 
         //Definitions for performance tables, one->many
-        //[DisplayFormat(NullDisplayText = "No Performances")]
         [JsonProperty("performances")]
         public virtual ICollection<Performance>? Performances { get; set; }
+
+        //many->one
+        //[JsonIgnore]
+        [JsonIgnore]
+        public virtual Owner? Owner { get; set; }
+        [JsonProperty("owner_name")]
+        public string OwnerName { get; set; }
     }
 }

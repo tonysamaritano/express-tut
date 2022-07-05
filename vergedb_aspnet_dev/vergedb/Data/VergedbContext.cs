@@ -11,9 +11,9 @@ namespace vergedb.Data
         {
         }
 
-        //For multiple models need to update to have multiple sets
         public DbSet<Drone> Drone { get; set; } //Creates Drones table in Database
         public DbSet<Performance> Performance { get; set; } //Creates Drones table in Database
+        public DbSet<vergedb.Models.Owner>? Owner { get; set; }
 
     }
 }

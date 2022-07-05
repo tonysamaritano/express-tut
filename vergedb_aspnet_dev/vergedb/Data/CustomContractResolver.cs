@@ -8,7 +8,6 @@ namespace vergedb.Data
     public class CustomContractResolver : DefaultContractResolver
     {
         private readonly Dictionary<Type, HashSet<string>> _ignores;
-        private readonly Dictionary<Type, Dictionary<string, string>> _renames;
 
         public CustomContractResolver()
         {
@@ -35,6 +34,11 @@ namespace vergedb.Data
             {
                 property.ShouldSerialize = i => false;
                 property.Ignored = true;
+            }
+
+            else
+            {
+                property.ShouldDeserialize = i => true;
             }
 
             return property;

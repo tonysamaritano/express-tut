@@ -30,24 +30,39 @@ namespace vergedb.Controllers
                 return NotFound();
             }
 
-            List<Drone> droneList = await _context.Drone.ToListAsync();
+            List<Drone> droneList = await _context.Drone.Select(x => new Drone
+                                                        {
+                                                            DroneID = x.DroneID,
+                                                            DroneUID = x.DroneUID,
+                                                            FaaId = x.FaaId,
+                                                            PixHardware = x.PixHardware,
+                                                            PerformanceCount = x.Performances.Count(),
+                                                            Performances = x.Performances,
+                                                            OwnerName = x.Owner.CompanyName
+                                                        }).ToListAsync();
 
             jsonResolver.IgnoreProperty(typeof(Drone), "key", "performances");
             serializerSettings.ContractResolver = jsonResolver;
 
-            return Ok(JsonConvert.SerializeObject(droneList, serializerSettings));
+            return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(droneList, serializerSettings)));
         }
 
         // GET: api/Drones/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Drone>> GetDrone(int id)
+        public async Task<IActionResult> GetDrone(int id)
         {
             if (_context.Drone == null)
             {
                 return NotFound();
             }
 
-            var drone = await _context.Drone.FindAsync(id);
+            var drone = await _context.Drone.Where(i => i.DroneID == id).Include(p => p.Performances).Include(o => o.Owner).SingleAsync();
+            drone.OwnerName = drone.Owner.CompanyName;
+
+            if(drone.Performances != null)
+                drone.PerformanceCount = drone.Performances.Count();
+            else
+                drone.PerformanceCount = 999999;
 
             if (drone == null)
             {
@@ -57,49 +72,49 @@ namespace vergedb.Controllers
             jsonResolver.IgnoreProperty(typeof(Drone), "key", "performances");
             serializerSettings.ContractResolver = jsonResolver;
 
-            return Ok(JsonConvert.SerializeObject(drone, serializerSettings));
+            return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(drone, serializerSettings)));
         }
 
         // GET: api/Drones/Performances
         [HttpGet("Performances")]
-        public IActionResult GetPerformances()
+        public async Task<IActionResult> GetPerformances()
         {
             if (_context.Drone == null)
             {
                 return NotFound();
             }
-            var drone = _context.Drone.Include(p => p.Performances).ToList();
+            var drone = await _context.Drone.Include(p => p.Performances).ToListAsync();
 
             if (drone == null)
             {
                 return NotFound();
             }
 
-            jsonResolver.IgnoreProperty(typeof(Drone), "key");
+            jsonResolver.IgnoreProperty(typeof(Drone), "key", "faa_id", "cube_version", "performance_count", "owner_name");
             serializerSettings.ContractResolver = jsonResolver;
 
-            return Ok(JsonConvert.SerializeObject(drone, serializerSettings));
+            return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(drone, serializerSettings)));
         }
 
         // GET: api/Drones/Performances/5
         [HttpGet("Performances/{id}")]
-        public IActionResult GetPerformances(int id)
+        public async Task<IActionResult> GetPerformances(int id)
         {
             if (_context.Drone == null)
             {
                 return NotFound();
             }
-            var drone = _context.Drone.Where(i => i.DroneID == id).Include(p => p.Performances).ToList();
+            var drone = await _context.Drone.Where(i => i.DroneID == id).Include(p => p.Performances).ToListAsync();
 
             if (drone == null)
             {
                 return NotFound();
             }
 
-            jsonResolver.IgnoreProperty(typeof(Drone), "key");
+            jsonResolver.IgnoreProperty(typeof(Drone), "key", "faa_id", "cube_version", "performance_count", "owner_name");
             serializerSettings.ContractResolver = jsonResolver;
 
-            return Ok(JsonConvert.SerializeObject(drone, serializerSettings));
+            return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(drone, serializerSettings)));
         }
 
         // PUT: api/Drones/5

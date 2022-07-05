@@ -1,7 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
-//using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
 namespace vergedb.Models
@@ -15,6 +12,15 @@ namespace vergedb.Models
         [Required]
         [JsonProperty("slot")]
         public int Slot { get; set; }
+        [Required]
+        [JsonProperty("flight_time")]
+        public float FlightTime { get; set; }
+        [Required]
+        [JsonProperty("start_battery")]
+        public float StartingBattery { get; set; }
+        [Required]
+        [JsonProperty("end_battery")]
+        public float EndingBattery { get; set; }
 
         //Dependencies on drone, many->one
         [JsonIgnore]
