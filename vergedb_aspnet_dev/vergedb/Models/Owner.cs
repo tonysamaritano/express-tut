@@ -10,7 +10,7 @@ namespace vergedb.Models
         public int OwnerID { get; set; }
         [Required]
         [JsonProperty("company_name")]
-        public string CompanyName { get; set; }
+        public string? CompanyName { get; set; }
         [Required]
         [JsonProperty("number_drones")]
         public int NumDrones { get; set; }

@@ -14,11 +14,11 @@ namespace vergedb.Models
         public int DroneUID { get; set; }
         [Required]
         [JsonProperty("faa_id")]
-        public string FaaId { get; set; }
+        public string? FaaId { get; set; }
         [Required]
         [JsonProperty("cube_version")]
         [RegularExpression(@"(orange|black)", ErrorMessage = "Specify [orange] or [black] cube.")]
-        public string PixHardware { get; set; }
+        public string? PixHardware { get; set; }
         [Required]
         [JsonProperty("performance_count")]
         public int PerformanceCount { get; set; }
@@ -33,6 +33,6 @@ namespace vergedb.Models
         [JsonIgnore]
         public virtual Owner? Owner { get; set; }
         [JsonProperty("owner_name")]
-        public string OwnerName { get; set; }
+        public string? OwnerName { get; set; }
     }
 }

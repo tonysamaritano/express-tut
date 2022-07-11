@@ -265,3 +265,9 @@ C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\obj\Debug\net6.0\ref\vergedb.dll
 C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.Owin.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.Owin.Security.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.Owin.Security.Jwt.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Microsoft.Owin.Security.OAuth.dll
+C:\Verge\Drone DB\vergedb_aspnet_dev\vergedb\bin\Debug\net6.0\Owin.dll

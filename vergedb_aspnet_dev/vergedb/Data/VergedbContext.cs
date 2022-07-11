@@ -14,6 +14,7 @@ namespace vergedb.Data
         public DbSet<Drone> Drone { get; set; } //Creates Drones table in Database
         public DbSet<Performance> Performance { get; set; } //Creates Drones table in Database
         public DbSet<vergedb.Models.Owner>? Owner { get; set; }
+        public DbSet<UserModel> User { get; set; }
 
     }
 }
