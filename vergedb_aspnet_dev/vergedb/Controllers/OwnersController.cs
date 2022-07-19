@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using vergedb.Data;
 using vergedb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace vergedb.Controllers
 {
@@ -28,6 +24,7 @@ namespace vergedb.Controllers
 
         // GET: api/Owners
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Owner>>> GetOwner()
         {
           if (_context.Owner == null)
@@ -117,7 +114,7 @@ namespace vergedb.Controllers
             }
 
             jsonResolver.IgnoreProperty(typeof(Owner), "key");
-            jsonResolver.IgnoreProperty(typeof(Drone), "key", "owner_name", "performances", "performance_count");
+            jsonResolver.IgnoreProperty(typeof(Drone), "key", "owner_name", "performances");
             serializerSettings.ContractResolver = jsonResolver;
 
             return Ok(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(owner, serializerSettings)));
