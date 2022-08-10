@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj": {}
+    "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj": {}
   },
   "projects": {
-    "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj": {
+    "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj",
+        "projectUniqueName": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
         "projectName": "VergeDBAPI",
-        "projectPath": "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj",
-        "packagesPath": "C:\\Users\\gdona\\.nuget\\packages\\",
-        "outputPath": "C:\\Verge\\verge_repo\\VergeDBAPI\\obj\\",
+        "projectPath": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
+        "packagesPath": "C:\\Users\\drunk\\.nuget\\packages\\",
+        "outputPath": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\gdona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\drunk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,6 +82,10 @@
               "target": "Package",
               "version": "[6.0.7, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.22.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.7, )"
@@ -101,6 +109,10 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.22.0, )"
             }
           },
           "imports": [

@@ -21,7 +21,7 @@ namespace VergeDBAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("VergeDBAPI.Models.Assets", b =>
+            modelBuilder.Entity("VergeDBAPI.Models.Asset", b =>
                 {
                     b.Property<int>("AssetID")
                         .ValueGeneratedOnAdd()
@@ -168,7 +168,7 @@ namespace VergeDBAPI.Migrations
                         .IsUnique()
                         .HasFilter("[FaaId] IS NOT NULL");
 
-                    b.ToTable("Drones");
+                    b.ToTable("Drone");
 
                     b.HasData(
                         new
@@ -200,6 +200,61 @@ namespace VergeDBAPI.Migrations
                             DroneUID = 912,
                             Firmware = "",
                             FlightHours = 0
+                        });
+                });
+
+            modelBuilder.Entity("VergeDBAPI.Models.UserModel", b =>
+                {
+                    b.Property<int>("UserModelID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserModelID"), 1L, 1);
+
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserModelID");
+
+                    b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            UserModelID = 1,
+                            Company = "Verge Aero",
+                            Email = "Tony@vergeaero.com",
+                            Password = "Drones",
+                            Role = "Wizardry",
+                            Username = "Tony"
+                        },
+                        new
+                        {
+                            UserModelID = 2,
+                            Company = "Splurge Aero",
+                            Email = "Gabe@gabe.gov",
+                            Password = "Gabe",
+                            Role = "Drone God",
+                            Username = "Gabe"
                         });
                 });
 #pragma warning restore 612, 618

@@ -14,7 +14,9 @@ namespace VergeDBAPI
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Drone> Drones { get; set; }
         public DbSet<Battery> Batteries { get; set; }
-
+        //public DbSet<UserLogin> UserLogin { get; set; }
+        public DbSet<UserModel> User { get; set; }
+        public DbSet<Drone> Drone { get; set; } //Creates Drones table in Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Force unique properties
@@ -139,6 +141,27 @@ namespace VergeDBAPI
                 TableKey = 2,
                 OrganizationID = OrganizationId.Verge
             });
+     
+            modelBuilder.Entity<UserModel>().HasData(new UserModel
+            {
+                UserModelID = 1,
+                Username = "Tony",
+                Password = "Drones",
+                Email = "Tony@vergeaero.com",
+                Company = "Verge Aero",
+                Role = "Wizardry"
+            });
+
+            modelBuilder.Entity<UserModel>().HasData(new UserModel
+            {
+                UserModelID = 2,
+                Username = "Gabe",
+                Password = "Gabe",
+                Email = "Gabe@gabe.gov",
+                Company = "Splurge Aero",
+                Role = "Drone God"
+            });
+
         }
     }
 }
