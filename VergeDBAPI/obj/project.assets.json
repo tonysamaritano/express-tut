@@ -11270,23 +11270,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\drunk\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
+      "projectUniqueName": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
       "projectName": "VergeDBAPI",
-      "projectPath": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
-      "packagesPath": "C:\\Users\\drunk\\.nuget\\packages\\",
-      "outputPath": "D:\\Work_Job_Related\\Verge Aero Internship\\NodeJS and SQL stuff\\express-tut\\VergeDBAPI\\obj\\",
+      "projectPath": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\drunk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11402,7 +11402,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

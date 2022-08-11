@@ -148,8 +148,8 @@ namespace VergeDBAPI
                 Username = "Tony",
                 Password = "Drones",
                 Email = "Tony@vergeaero.com",
-                Company = "Verge Aero",
-                Role = "Wizardry"
+                Company = "Verge",
+                Role = "Admin"
             });
 
             modelBuilder.Entity<UserModel>().HasData(new UserModel

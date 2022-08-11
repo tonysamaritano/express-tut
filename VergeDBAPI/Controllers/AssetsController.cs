@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 using VergeDBAPI.Models;
 
 namespace VergeDBAPI.Controllers
@@ -17,6 +19,7 @@ namespace VergeDBAPI.Controllers
 
         // GET: v1/Assets
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
             if (_context.Assets == null)
@@ -56,7 +59,8 @@ namespace VergeDBAPI.Controllers
                             FaaId = droneAsset.FaaId,
                             FlightHours = droneAsset.FlightHours,
                             Firmware = droneAsset.Firmware
-                        }
+                        },
+                        organization_id = assets.OrganizationID.ToString()   // testing
                     });
 
                 case AssetType.Battery:
@@ -70,7 +74,8 @@ namespace VergeDBAPI.Controllers
                             BatteryID = batteryAsset.BatteryID,
                             BatteryCycles = batteryAsset.BatteryCycles,
                             BatteryType = batteryAsset.BatteryType
-                        }
+                        },
+                        organization_id = assets.OrganizationID.ToString()   // testing
                     });
             }
 

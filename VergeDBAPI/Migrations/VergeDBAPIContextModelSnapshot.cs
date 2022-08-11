@@ -241,10 +241,10 @@ namespace VergeDBAPI.Migrations
                         new
                         {
                             UserModelID = 1,
-                            Company = "Verge Aero",
+                            Company = "Verge",
                             Email = "Tony@vergeaero.com",
                             Password = "Drones",
-                            Role = "Wizardry",
+                            Role = "Admin",
                             Username = "Tony"
                         },
                         new
