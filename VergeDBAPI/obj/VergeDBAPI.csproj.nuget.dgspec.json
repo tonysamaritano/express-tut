@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj": {}
+    "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj": {}
   },
   "projects": {
-    "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj": {
+    "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
+        "projectUniqueName": "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj",
         "projectName": "VergeDBAPI",
-        "projectPath": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\VergeDBAPI.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK and JOB STUFF\\Verge_Internship\\Git Repos\\NODE JS and NET C#\\express-tut\\VergeDBAPI\\obj\\",
+        "projectPath": "C:\\Verge\\verge_repo\\VergeDBAPI\\VergeDBAPI.csproj",
+        "packagesPath": "C:\\Users\\gdona\\.nuget\\packages\\",
+        "outputPath": "C:\\Verge\\verge_repo\\VergeDBAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gdona\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,17 +40,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.1.0, )"
+              "version": "[11.2.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.9, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
@@ -62,33 +58,29 @@
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.7, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[6.22.0, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -109,10 +101,6 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.4.0, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[6.22.0, )"
             }
           },
           "imports": [
@@ -133,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

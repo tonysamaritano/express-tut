@@ -19,7 +19,7 @@ namespace VergeDBAPI.Models
 
     public class BatteryForm : Battery
     {
-        [JsonProperty("organization_id")]
-        public OrganizationId OrganizationID { get; set; } = OrganizationId.Unowned;
+        [Required]
+        public int OrganizationID { get; set; }
     }
 }

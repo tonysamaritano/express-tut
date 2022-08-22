@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VergeDBAPI.Models
 {
@@ -9,7 +10,6 @@ namespace VergeDBAPI.Models
         [JsonIgnore]
         [JsonProperty("asset_id")]
         public int AssetID { get; set; }
-        [JsonIgnore]
         [Required]
         [JsonProperty("type_id")]
         public AssetType TypeID { get; set; }
@@ -17,7 +17,10 @@ namespace VergeDBAPI.Models
         [JsonProperty("table_key")]
         public int TableKey { get; set; }
         [JsonProperty("organization_id")]
-        public OrganizationId OrganizationID { get; set; } = OrganizationId.Unowned;
+        public int OrganizationID { get; set; }
+        [ForeignKey("OrganizationID")]
+        [JsonIgnore]
+        public Organization Organization { get; set; }
     }
 
     [Flags]
@@ -28,14 +31,5 @@ namespace VergeDBAPI.Models
         BaseStation = 2,
         Gateway = 4,
         SmartCase = 8
-    }
-
-    //Temporary organization management
-    public enum OrganizationId : short
-    {
-        Unowned = -1,
-        Verge = 0,
-        Strictly = 1,
-        Go = 2
     }
 }

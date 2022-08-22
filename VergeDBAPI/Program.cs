@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Newtonsoft.Json;
 using System.Text;
 using VergeDBAPI;
@@ -15,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo {  Title = "Verge API", Version = "v1" });
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Verge API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Scheme = "Bearer",
@@ -66,8 +63,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
+
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,7 +76,6 @@ if (builder.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>
@@ -86,9 +84,6 @@ app.UseSwaggerUI(c =>
 });
 
 app.UseAuthentication();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

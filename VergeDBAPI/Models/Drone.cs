@@ -13,18 +13,23 @@ namespace VergeDBAPI.Models
         [JsonProperty("drone_uid")]
         public int DroneUID { get; set; }
         [JsonProperty("faa_id")]
-        [StringLength(10)]
+        [RegularExpression(@"^[a-zA-Z]{10}$", ErrorMessage = "Must be 10 characters.")]
         public string? FaaId { get; set; } = null;
         [JsonProperty("flight_hours")]
         public int FlightHours { get; set; } = 0;
         [JsonProperty("firmware")]
-        [StringLength(50)]
+        [RegularExpression(@"^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$", ErrorMessage = "Please format as X.X.X.X")]
         public string Firmware { get; set; } = "";
+
+        [JsonProperty("performances")]
+        [JsonIgnore]
+        public ICollection<Performance>? Performances { get; set; }
     }
 
     public class DroneForm : Drone
     {
         //Type ID and Table key can be set in controller
-        public OrganizationId OrganizationID { get; set; } = OrganizationId.Unowned;
+        [Required]
+        public int OrganizationID { get; set; }
     }
 }

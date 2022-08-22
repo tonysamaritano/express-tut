@@ -1,33 +1,27 @@
 ﻿using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VergeDBAPI.Models
 {
-    public class UserModel
+    public class User
     {
         [Key]
         [JsonIgnore]
-        [JsonProperty("UserModelID")]
-        public int UserModelID { get; set; }
+        [JsonProperty("user_model_id")]
+        public int UserID { get; set; }
         [Required]
-        [JsonProperty("Username")]
+        [JsonProperty("username")]
         public string? Username { get; set; }
         [Required]
-        [JsonProperty("Password")]
+        [JsonProperty("password")]
         public string? Password { get; set; }
         [Required]
-        [JsonProperty("Email")]
+        [JsonProperty("email")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string? Email { get; set; }
-        [Required]
-        [JsonProperty("Company")]
-        [StringLength(20)]
-        public string? Company { get; set; }
-        [Required]
-        [JsonProperty("Role")]
-        [StringLength(20)]
-        public string? Role { get; set; }
-        
+        [JsonIgnore]
+        public OrganizationMembership Membership { get; set; }
     }
 }
